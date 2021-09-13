@@ -4,20 +4,9 @@
     <div class="user-input">
       <input
         placeholder="Press enter to add new item"
-        v-model="input"
-        @keyup.enter="addItem"
-        ref="input"
-      /><button @click="addItem">Add item</button>
+      /><button >Add item</button>
     </div>
 
-    <ul v-if="shoppingList">
-      <li v-for="(item, i) in shoppingList" :key="i" class="item"
-        ><span>{{ item }}</span>
-        <button class="button--remove" @click="deleteItem(i)">Remove</button>
-      </li>
-    </ul>
-    <br />
-    <button class="button--delete" @click="deleteItem()">Delete all</button>
   </div>
 </template>
 
@@ -25,25 +14,11 @@
 export default {
   data() {
     return {
-      input: '',
-      shoppingList: [],
+      
     }
   },
   methods: {
-    addItem() {
-      // Don't allow adding to the list if empty
-      if (!this.input) return
-      this.shoppingList.push(this.input)
-      // Clear the input after adding
-      this.input = ''
-      // Focus the input element again for quick typing!
-      this.$refs.input.focus()
-    },
-    deleteItem(i) {
-      this.shoppingList = i
-        ? this.shoppingList.filter((item, x) => x !== i)
-        : []
-    },
+    
   },
 }
 </script>
